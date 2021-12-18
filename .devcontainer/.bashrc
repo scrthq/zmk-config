@@ -1,11 +1,9 @@
 export LS_OPTIONS='-F --color=auto'
 alias ls='ls $LS_OPTIONS'
 
-if [[ ! -f ~/west_initialized.txt ]]; then
-  west init -l config
+function update() {
   west update && west zephyr-export
-  echo 'west_initialized' > ~/west_initialized.txt
-fi
+}
 
 function build() {
   GITHUB_WORKSPACE=$(pwd)
@@ -29,3 +27,9 @@ EOH
   west build --pristine -s zmk/app -b corne-ish_zen_right -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config" && \
   cp build/zephyr/zmk.uf2 firmware/corneish_zen_right.uf2
 }
+
+if [[ ! -f ~/west_initialized.txt ]]; then
+  west init -l config
+  update
+  echo 'west_initialized' > ~/west_initialized.txt
+fi

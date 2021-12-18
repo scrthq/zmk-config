@@ -18,6 +18,5 @@
   "hostRequirements": {
     "cpus": 4,
     "memory": "8gb"
-  },
-  "postCreateCommand": "west init -l config"
+  }
 }
