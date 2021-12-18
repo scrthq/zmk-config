@@ -14,5 +14,10 @@
       "*.keymap": "c"
     }
   },
-  "forwardPorts": [3000]
+  "forwardPorts": [3000],
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb"
+  },
+  "postCreateCommand": "west init -l config"
 }

@@ -76,7 +76,7 @@
                         bindings = <
    &kp F1      &kp F2  &kp F3   &kp F4    &kp F5 &kp F6    &kp F7   &kp F8   &kp F9 &kp F10   &kp F11 &kp F12
    &kp CAPS    &kp INS &kp HOME &kp PG_UP &none  &none     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none   &none
-   &tog NUMPAD &kp DEL &kp END  &kp PG_DN &none  &none     &none    &none    &none  &none     &none   &none
+   &tog NUMPAD &kp DEL &kp END  &kp PG_DN &none  &none     &none    &none    &none  &none     &none   &bootloader
                            &kp LGUI &mo NUMROW &kp LCTL    &kp SPC &mo ADJUST &tog GAMING
                         >;
                 };
@@ -84,7 +84,7 @@
                 config_layer {
                         label = "CONFIG";
                         bindings = <
-   &reset     &none        &none        &none        &none        &none           &none &none &none &none &none &none
+   &reset     &none        &none        &none        &none        &bootloader           &none &none &none &none &none &bootloader
    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &none &none &none &none &none &none
    &none      &none        &none        &none        &none        &none           &none &none &none &none &none &none
                                                 &mo CONFIG &mo NUMROW &kp LCTL    &kp SPC &mo ADJUST &kp F13
