@@ -4,3 +4,5 @@ zephyr/
 modules/
 tools/
 .west/
+firmware/
+*.uf2
