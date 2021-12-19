@@ -28,6 +28,16 @@
 };
 
 / {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <3 4>;
+            then-layer = <5>;
+        };
+    };
+};
+
+/
         keymap {
                 compatible = "zmk,keymap";
 
@@ -37,7 +47,7 @@
    &kp TAB         &kp Q &kp W &kp E &kp R &kp T        &kp Y &kp U &kp I    &kp O   &kp P    &kp BKSP
    &mt LCTL MINUS  &kp A &kp S &kp D &kp F &kp G        &kp H &kp J &kp K    &kp L   &kp SEMI &kp SQT
    &mt LSHIFT LPAR &kp Z &kp X &kp C &kp V &kp B        &kp N &kp M &kp CMMA &kp DOT &kp FSLH &mt RSHIFT RPAR
-                &kp LGUI &lt NUMROW SPC &mt LALT SPC     &kp ENTER &mo ADJUST &kp F13
+                &kp LGUI &lt NUMROW SPC &mt LALT SPC     &kp ENTER &lt ADJUST LEFT &kp RIGHT
                         >;
                 };
 
@@ -74,9 +84,9 @@
                 adjust_layer {
                         label = "ADJUST";
                         bindings = <
-   &kp F1      &kp F2  &kp F3   &kp F4    &kp F5 &kp F6    &kp F7   &kp F8   &kp F9 &kp F10   &kp F11 &kp F12
-   &kp CAPS    &kp INS &kp HOME &kp PG_UP &none  &none     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none   &none
-   &tog NUMPAD &kp DEL &kp END  &kp PG_DN &none  &none     &none    &none    &none  &none     &none   &bootloader
+   &kp LC(GRAVE)  &kp F2  &kp F3   &kp F4    &kp F5 &kp F6    &kp F7   &kp F8   &kp F9 &kp F10   &kp F11 &kp F12
+   &kp CAPS       &kp INS &kp HOME &kp PG_UP &none  &none     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none   &none
+   &tog NUMPAD    &kp DEL &kp END  &kp PG_DN &none  &none     &none    &none    &none  &none     &none   &bootloader
                            &kp LGUI &mo NUMROW &kp LCTL    &kp SPC &mo ADJUST &tog GAMING
                         >;
                 };

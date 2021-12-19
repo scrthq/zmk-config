@@ -1,6 +1,8 @@
 export LS_OPTIONS='-F --color=auto'
 alias ls='ls $LS_OPTIONS'
 
+export PATH="$PATH:/root/.local/bin"
+
 function update() {
   west update && west zephyr-export
 }
