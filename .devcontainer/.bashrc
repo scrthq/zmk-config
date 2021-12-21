@@ -10,6 +10,7 @@ function update() {
 function build() {
   GITHUB_WORKSPACE=$(pwd)
   [[ -d firmware ]] || mkdir firmware
+  [[ -d build ]] && rm -rf build
   cat << EOH
 ------------------
 
