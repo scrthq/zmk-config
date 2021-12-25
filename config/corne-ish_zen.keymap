@@ -20,7 +20,7 @@
 &lt { quick_tap_ms = <0>; };
 
 / {
-    behaviors {
+    behaviors{
         // nk: not_so_sticky_key {
         //     compatible = "zmk,behavior-hold-tap";
         //     label = "not so sticky key";
@@ -108,89 +108,102 @@
         //     mods = <(MOD_RALT)>;
         // };
     };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <3 4>;
+            then-layer = <5>;
+        };
+    };
     combos {
         compatible = "zmk,combos";
+
         combo_esc {
             timeout-ms = <50>;
             key-positions = <0 1>;
             bindings = <&kp ESC>;
         };
+
+        combo_ctgrv {
+            timeout-ms = <50>;
+            key-positions = <0 1 2>;
+            bindings = <&kp LC(GRAVE)>;
+        };
     };
 };
 
 / {
-        keymap {
-                compatible = "zmk,keymap";
+    keymap {
+        compatible = "zmk,keymap";
 
-
-                default_layer {
-                        label = "QWERTY";
-                        bindings = <
-   &kp TAB         &kp Q &kp W &kp E &kp R &kp T        &kp Y &kp U &kp I    &kp O   &kp P    &kp BKSP
-   &mt LCTL MINUS  &kp A &kp S &kp D &kp F &kp G        &kp H &kp J &kp K    &kp L   &kp SEMI &kp SQT
-   &mt LSHIFT LPAR &kp Z &kp X &kp C &kp V &kp B        &kp N &kp M &kp CMMA &kp DOT &kp FSLH &mt RSHIFT RPAR
-                &kp LGUI &lt NUMROW SPC &mt LALT SPC     &kp ENTER &lt ADJUST LEFT_ARROW &kp RIGHT_ARROW
-                        >;
-                };
-
-                gaming_layer {
-                        label = "GAMING";
-                        bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T    &kp Y &kp U &kp I    &kp O   &kp P    &kp BKSP
-   &kp LALT  &kp A &kp S &kp D &kp F &kp G    &kp H &kp J &kp K    &kp L   &kp QUOT &kp ENTER
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B    &kp N &kp M &kp CMMA &kp DOT &kp FSLH &kp RSFT
-               &kp LCTL &mo NUMROW &kp SPC    &kp SPC &mo ADJUST &kp F13
-                        >;
-                };
-
-                numpad_layer {
-                        label = "NUMPAD";
-                        bindings = <
-   &kp TAB     &none &none &none &none &none    &kp KP_EQUAL    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS &kp BSPC
-   &kp KP_NLCK &none &none &none &none &none    &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS  &none
-   &tog NUMPAD &none &none &none &none &none    &kp KP_SLASH    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_ENTER &none
-              &mo CONFIG &mo NUMROW &kp LCTL    &kp SPC &kp KP_N0 &kp KP_DOT
-                        >;
-                };
-
-                numrow_layer {
-                        label = "NUMROW";
-                        bindings = <
-   &kp ESC   &kp N1 &kp N2 &kp N3    &kp N4    &kp N5       &kp N6   &kp N7   &kp N8 &kp N9    &kp N0   &kp BSPC
-   &kp GRAVE &none  &none  &kp PSCRN &kp MINUS &kp EQUAL    &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp SEMI &none
-   &kp LSHFT &none  &none  &kp BSLH  &kp LBKT  &kp RBKT     &none    &none    &none  &none     &none    &kp LSHFT
-                          &mo CONFIG &mo NUMROW &kp LCTL    &kp ENTER &mo ADJUST &kp F13
-                        >;
-                };
-
-                adjust_layer {
-                        label = "ADJUST";
-                        bindings = <
-   &kp LC(GRAVE)  &kp F2  &kp F3   &kp F4    &kp F5 &kp F6    &kp F7   &kp F8   &kp F9 &kp F10   &kp F11 &kp F12
-   &kp CAPS       &kp INS &kp HOME &kp PG_UP &none  &none     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none   &none
-   &tog NUMPAD    &kp DEL &kp END  &kp PG_DN &none  &none     &none    &none    &none  &none     &none   &bootloader
-                           &kp LGUI &mo NUMROW &kp LCTL    &kp SPC &mo ADJUST &tog GAMING
-                        >;
-                };
-
-                config_layer {
-                        label = "CONFIG";
-                        bindings = <
-   &reset     &none        &none        &none        &none        &bootloader     &bootloader &none &none &none &none &bootloader
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &none &none &none &none &none &none
-   &none      &none        &none        &none        &none        &none           &none &none &none &none &none &none
-                                                &mo CONFIG &mo NUMROW &kp LCTL    &kp SPC &mo ADJUST &kp F13
-                        >;
-                };
-
-                os_layer {
-                        label = "OSKEYS";
-                        bindings = <
-   &kp TAB     &none &none &none &none &none    &kp KP_EQUAL    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS &kp BSPC
-   &kp KP_NLCK &none &none &none &none &none    &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS  &none
-   &tog NUMPAD &none &none &none &none &none    &kp KP_SLASH    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_ENTER &none
-              &mo CONFIG &mo NUMROW &kp LCTL    &kp SPC &kp KP_N0 &kp KP_DOT
-                        >;
-                };
+        default_layer {
+            label = "QWERTY";
+            bindings = <
+                &kp TAB         &kp Q &kp W &kp E &kp R &kp T        &kp Y &kp U &kp I    &kp O   &kp P    &kp BKSP
+                &mt LCTL MINUS  &kp A &kp S &kp D &kp F &kp G        &kp H &kp J &kp K    &kp L   &kp SEMI &kp SQT
+                &mt LSHIFT LPAR &kp Z &kp X &kp C &kp V &kp B        &kp N &kp M &kp CMMA &kp DOT &kp FSLH &mt RSHIFT RPAR
+                            &kp LGUI &lt NUMROW SPC &mt LALT SPC     &kp ENTER &lt ADJUST LEFT_ARROW &kp RIGHT_ARROW
+            >;
         };
+
+        gaming_layer {
+            label = "GAMING";
+            bindings = <
+                &kp TAB   &kp Q &kp W &kp E &kp R &kp T    &kp Y &kp U &kp I    &kp O   &kp P    &kp BKSP
+                &kp LALT  &kp A &kp S &kp D &kp F &kp G    &kp H &kp J &kp K    &kp L   &kp QUOT &kp ENTER
+                &kp LSHFT &kp Z &kp X &kp C &kp V &kp B    &kp N &kp M &kp CMMA &kp DOT &kp FSLH &kp RSFT
+                            &kp LCTL &mo NUMROW &kp SPC    &kp SPC &mo ADJUST &kp F13
+            >;
+        };
+
+        numpad_layer {
+                label = "NUMPAD";
+                bindings = <
+                    &kp TAB     &none &none &none &none &none    &kp KP_EQUAL    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS &kp BSPC
+                    &kp KP_NLCK &none &none &none &none &none    &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS  &none
+                    &tog NUMPAD &none &none &none &none &none    &kp KP_SLASH    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_ENTER &none
+                            &mo CONFIG &mo NUMROW &kp LCTL    &kp SPC &kp KP_N0 &kp KP_DOT
+                >;
+            };
+
+        numrow_layer {
+            label = "NUMROW";
+            bindings = <
+                &kp ESC   &kp N1 &kp N2 &kp N3    &kp N4    &kp N5       &kp N6   &kp N7   &kp N8 &kp N9    &kp N0   &kp BSPC
+                &kp GRAVE &none  &none  &kp PSCRN &kp MINUS &kp EQUAL    &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp SEMI &none
+                &kp LSHFT &none  &none  &kp BSLH  &kp LBKT  &kp RBKT     &none    &none    &kp CMMA &kp DOT &kp FSLH &kp LSHFT
+                                    &mo CONFIG &mo NUMROW &kp LCTL    &kp ENTER &mo ADJUST &kp F13
+            >;
+        };
+
+        adjust_layer {
+            label = "ADJUST";
+            bindings = <
+                &kp LC(GRAVE)  &kp F2  &kp F3   &kp F4    &kp F5 &kp F6    &kp F7   &kp F8   &kp F9 &kp F10   &kp F11 &kp F12
+                &kp CAPS       &kp INS &kp HOME &kp PG_UP &none  &none     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none   &none
+                &tog NUMPAD    &kp DEL &kp END  &kp PG_DN &none  &none     &none    &none    &none  &none     &none   &bootloader
+                                    &kp LGUI &mo NUMROW &kp LCTL    &kp SPC &mo ADJUST &tog GAMING
+            >;
+        };
+
+        config_layer {
+            label = "CONFIG";
+            bindings = <
+                &reset     &none        &none        &none        &none        &bootloader     &bootloader &none &none &none &none &kp DELETE
+                &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &none &none &none &none &none &none
+                &none      &none        &none        &none        &none        &none           &none &none &none &none &none &none
+                                    &mo CONFIG &mo NUMROW &kp LCTL                                &kp SPC &mo ADJUST &kp F13
+            >;
+        };
+
+        os_layer {
+            label = "OSKEYS";
+            bindings = <
+                &kp TAB         &kp Q      &kp W      &kp E      &kp R      &kp T        &kp Y &kp U &kp I    &kp O   &kp P    &kp BKSP
+                &mt LCTL MINUS  &kp A      &kp S      &kp D      &kp F      &kp G        &kp H &kp J &kp K    &kp L   &kp SEMI &kp SQT
+                &mt LSHIFT LPAR &kp Z      &kp K_CUT  &kp K_COPY &kp K_PASTE       &kp B        &kp N &kp M &kp CMMA &kp DOT &kp FSLH &mt RSHIFT RPAR
+                            &kp LGUI &lt NUMROW SPC &mt LALT SPC     &kp ENTER &lt ADJUST LEFT_ARROW &kp RIGHT_ARROW
+            >;
+        };
+    };
 };
