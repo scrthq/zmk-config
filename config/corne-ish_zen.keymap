@@ -108,13 +108,13 @@
         //     mods = <(MOD_RALT)>;
         // };
     };
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <3 4>;
-            then-layer = <5>;
-        };
-    };
+    // conditional_layers {
+    //     compatible = "zmk,conditional-layers";
+    //     tri_layer {
+    //         if-layers = <3 4>;
+    //         then-layer = <5>;
+    //     };
+    // };
     combos {
         compatible = "zmk,combos";
 
