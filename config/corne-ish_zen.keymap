@@ -189,7 +189,7 @@
         config_layer {
             label = "CONFIG";
             bindings = <
-                &reset     &none        &none        &none        &none        &bootloader     &bootloader &none &none &none &none &kp DELETE
+                &w     &none        &none        &none        &none        &bootloader     &bootloader &none &none &none &none &kp DELETE
                 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &none &none &none &none &none &none
                 &none      &none        &none        &none        &none        &none           &none &none &none &none &none &none
                                     &mo CONFIG &mo NUMROW &kp LCTL                                &kp SPC &mo ADJUST &kp F13
