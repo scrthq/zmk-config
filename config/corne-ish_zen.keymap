@@ -76,40 +76,42 @@
             timeout-ms = <50>;
             key-positions = <0 1>;
             bindings = <&kp ESC>;
+            layers = <QWERTY>;
         };
 
         combo_ctgrv {
             timeout-ms = <50>;
             key-positions = <0 1 2>;
             bindings = <&kp LC(GRAVE)>;
+            layers = <QWERTY>;
         };
 
         combo_ty {
             timeout-ms = <10>;
             key-positions = <5 6>;
             bindings = <&macro_ty>;
-            layers = <QWERTY>;
+            layers = <ADJUST>;
         };
 
         combo_gh {
             timeout-ms = <10>;
             key-positions = <17 18>;
             bindings = <&macro_gh>;
-            layers = <QWERTY>;
+            layers = <ADJUST>;
         };
 
         combo_bn {
             timeout-ms = <10>;
             key-positions = <29 30>;
             bindings = <&macro_bn>;
-            layers = <QWERTY>;
+            layers = <ADJUST>;
         };
 
         combo_tl {
             timeout-ms = <10>;
             key-positions = <5 21>;
             bindings = <&macro_tl>;
-            layers = <QWERTY>;
+            layers = <ADJUST>;
         };
     };
 
