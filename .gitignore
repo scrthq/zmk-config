@@ -7,3 +7,4 @@ tools/
 firmware/
 *.uf2
 **/local_macros.h
+local_only/
