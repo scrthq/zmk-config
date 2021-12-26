@@ -9,10 +9,10 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-#if (__has_include("local_macros.dtsi"))
-    #include "local_macros.dtsi"
+#if (__has_include("local_macros.h"))
+    #include "local_macros.h"
 #else
-    #include "remote_macros.dtsi"
+    #include "remote_macros.h"
 #endif
 
 #define QWERTY 0

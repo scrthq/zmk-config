@@ -6,4 +6,4 @@ tools/
 .west/
 firmware/
 *.uf2
-**/local_macros.dtsi
+**/local_macros.h
