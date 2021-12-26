@@ -9,11 +9,11 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-// #if (__has_include("./local_macros.dtsi"))
-//     #include "./local_macros.dtsi"
-// #else
-//     #include "./remote_macros.dtsi"
-// #endif
+#if (__has_include("local_macros.dtsi"))
+    #include "local_macros.dtsi"
+#else
+    #include "remote_macros.dtsi"
+#endif
 
 #define QWERTY 0
 #define GAMING 1
@@ -27,11 +27,11 @@
 
 / {
     behaviors {
-        #if (__has_include("./local_macros.dtsi"))
-            #include "./local_macros.dtsi"
-        #else
-            #include "./remote_macros.dtsi"
-        #endif
+        macro_1: macro_1 {
+            compatible = "zmk,behavior-macro";
+            label = "MACRO_1";
+            bindings = <&kp A>, <&kp B>;
+        };
     };
     combos {
         compatible = "zmk,combos";
