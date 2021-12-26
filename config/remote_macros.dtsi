@@ -1,0 +1,5 @@
+macro_1: macro_1 {
+    compatible = "zmk,behavior-macro";
+    label = "MACRO_1";
+    bindings = <&kp A>, <&kp B>;
+};
