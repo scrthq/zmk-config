@@ -12,7 +12,10 @@
 #if (__has_include("local_macros.h"))
     #include "local_macros.h"
 #else
-    #include "remote_macros.h"
+    #define mac_ty <&kp T>, <&kp Y>
+    #define mac_gh <&kp G>, <&kp H>
+    #define mac_bn <&kp B>, <&kp N>
+    #define mac_tl <&kp T>, <&kp L>
 #endif
 
 #define QWERTY 0
@@ -27,11 +30,29 @@
 
 / {
     behaviors {
-        macro_1: macro_1 {
+        mac_ty: mac_ty {
             compatible = "zmk,behavior-macro";
-            label = "MACRO_1";
+            label = "mac_ty";
             #binding-cells = < 0>;
-            bindings = macro_1_binding;
+            bindings = mac_ty;
+        };
+        mac_gh: mac_gh {
+            compatible = "zmk,behavior-macro";
+            label = "mac_gh";
+            #binding-cells = < 0>;
+            bindings = mac_gh;
+        };
+        mac_bn: mac_bn {
+            compatible = "zmk,behavior-macro";
+            label = "mac_bn";
+            #binding-cells = < 0>;
+            bindings = mac_bn;
+        };
+        mac_tl: mac_tl {
+            compatible = "zmk,behavior-macro";
+            label = "mac_tl";
+            #binding-cells = < 0>;
+            bindings = mac_tl;
         };
     };
     combos {
@@ -50,9 +71,27 @@
         };
 
         combo_ty {
-            timeout-ms = <50>;
+            timeout-ms = <2000>;
             key-positions = <5 6>;
-            bindings = <&macro_1>;
+            bindings = <&mac_ty>;
+        };
+
+        combo_gh {
+            timeout-ms = <2000>;
+            key-positions = <17 18>;
+            bindings = <&mac_gh>;
+        };
+
+        combo_bn {
+            timeout-ms = <2000>;
+            key-positions = <29 30>;
+            bindings = <&mac_bn>;
+        };
+
+        combo_tl {
+            timeout-ms = <2000>;
+            key-positions = <5 21>;
+            bindings = <&mac_tl>;
         };
     };
 };

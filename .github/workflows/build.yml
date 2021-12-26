@@ -37,7 +37,12 @@ jobs:
       - name: West Zephyr export
         run: west zephyr-export
       - name: West Build (Corne-ish Zen Left)
-        run: west build -s zmk/app -b corne-ish_zen_left -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config" -DCONFIG_ZMK_USB_LOGGING=y
+        run: >-
+          west build
+          -s zmk/app
+          -b corne-ish_zen_left
+          --
+          -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
       - name: Corne-ish Zen DTS File
         if: ${{ always() }}
         run: cat -n build/zephyr/corne-ish_zen_left.dts.pre.tmp
@@ -51,7 +56,13 @@ jobs:
           name: corneish_zen_firmware-${{ steps.date.outputs.date }}
           path: corneish_zen_left.uf2
       - name: West Build (Corne-ish Zen Right)
-        run: west build --pristine -s zmk/app -b corne-ish_zen_right -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config" -DCONFIG_ZMK_USB_LOGGING=y
+        run: >-
+          west build
+          --pristine
+          -s zmk/app
+          -b corne-ish_zen_right
+          --
+          -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
       - name: Corne-ish Zen Right Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
