@@ -1,0 +1,54 @@
+/*
+*
+* Copyright (c) 2021 scrthq
+* SPDX-License-Identifier: MIT
+*
+*/
+
+#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS, TERM) \
+        combo_##NAME { \
+            timeout-ms = <TERM>; \
+            bindings = <BINDINGS>; \
+            key-positions = <KEYPOS>; \
+            layers = <LAYERS>; \
+        };
+
+/ {
+    behaviors {
+        macro_ty: macro_ty {
+            compatible = "zmk,behavior-macro";
+            label = "mac_ty";
+            #binding-cells = <0>;
+            bindings = mac_ty;
+        };
+        macro_gh: macro_gh {
+            compatible = "zmk,behavior-macro";
+            label = "mac_gh";
+            #binding-cells = <0>;
+            bindings = mac_gh;
+        };
+        macro_bn: macro_bn {
+            compatible = "zmk,behavior-macro";
+            label = "mac_bn";
+            #binding-cells = <0>;
+            bindings = mac_bn;
+        };
+        macro_tl: macro_tl {
+            compatible = "zmk,behavior-macro";
+            label = "mac_tl";
+            #binding-cells = <0>;
+            bindings = mac_tl;
+        };
+    };
+    combos {
+        compatible = "zmk,combos";
+        COMBO(esc, &kp ESC, 0 1, QWERTY, 40)
+        COMBO(ctgrv, &kp LC(GRAVE), 0 1 2, QWERTY, 40)
+        COMBO(ty, &macro_ty, 5 6, ADJUST, 10)
+        COMBO(gh, &macro_gh, 17 18, ADJUST, 10)
+        COMBO(bn, &macro_bn, 29 30, ADJUST, 10)
+        COMBO(tl, &macro_tl, 5 21, ADJUST, 10)
+    };
+
+    cond_layers{};
+};
