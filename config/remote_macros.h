@@ -1,1 +1,1 @@
-#define macro_1_binding = < &kp A>, < &kp B>
+#define macro_1_binding <&kp A>, <&kp B>
