@@ -94,9 +94,7 @@
             bindings = <&macro_tl>;
         };
     };
-};
 
-/ {
     keymap {
         compatible = "zmk,keymap";
 
