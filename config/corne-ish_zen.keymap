@@ -15,8 +15,6 @@
     #include "remote_macros.h"
 #endif
 
-// #define macro_1_binding <&kp B>, <&kp C>
-
 #define QWERTY 0
 #define GAMING 1
 #define NUMPAD 2
