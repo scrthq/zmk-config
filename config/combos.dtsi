@@ -5,23 +5,6 @@
 *
 */
 
-#if (__has_include("local_macros.h"))
-    #include "local_macros.h"
-#else
-    #define mac_ty <&kp T>, <&kp Y>
-    #define mac_gh <&kp G>, <&kp H>
-    #define mac_bn <&kp B>, <&kp N>
-    #define mac_tl <&kp T>, <&kp L>
-#endif
-
-#define MACRO(NAME, LABEL, BINDINGS, BINDCELLS, HASH) \
-        macro_##NAME { \
-            compatible = "zmk,behavior-macro"; \
-            label = LABEL; \
-            HASH = <BINDCELLS>; \
-            bindings = BINDINGS; \
-        };
-
 #define COMBO(NAME, BINDINGS, KEYPOS, LAYERS, TERM) \
         combo_##NAME { \
             timeout-ms = <TERM>; \
@@ -32,12 +15,31 @@
 
 / {
     behaviors {
-        MACRO(ty, "mac_ty", mac_ty, 0, #binding-cells)
-        MACRO(gh, "mac_gh", mac_gh, 0, #binding-cells)
-        MACRO(bn, "mac_bn", mac_bn, 0, #binding-cells)
-        MACRO(tl, "mac_tl", mac_tl, 0, #binding-cells)
+        macro_ty {
+            compatible = "zmk,behavior-macro";
+            label = "mac_ty";
+            #binding-cells = <0>;
+            bindings = mac_ty;
+        };
+        macro_gh {
+            compatible = "zmk,behavior-macro";
+            label = "mac_gh";
+            #binding-cells = <0>;
+            bindings = mac_gh;
+        };
+        macro_bn {
+            compatible = "zmk,behavior-macro";
+            label = "mac_bn";
+            #binding-cells = <0>;
+            bindings = mac_bn;
+        };
+        macro_tl {
+            compatible = "zmk,behavior-macro";
+            label = "mac_tl";
+            #binding-cells = <0>;
+            bindings = mac_tl;
+        };
     };
-
     combos {
         compatible = "zmk,combos";
         COMBO(esc, &kp ESC, 0 1, QWERTY, 40)
@@ -48,5 +50,4 @@
         COMBO(tl, &macro_tl, 5 21, ADJUST, 10)
     };
 
-    cond_layers {};
-};
+    cond_layers{};

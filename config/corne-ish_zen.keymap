@@ -9,6 +9,15 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#if (__has_include("local_macros.h"))
+    #include "local_macros.h"
+#else
+    #define mac_ty <&kp T>, <&kp Y>
+    #define mac_gh <&kp G>, <&kp H>
+    #define mac_bn <&kp B>, <&kp N>
+    #define mac_tl <&kp T>, <&kp L>
+#endif
+
 #define QWERTY 0
 #define GAMING 1
 #define NUMPAD 2
