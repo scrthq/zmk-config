@@ -135,6 +135,12 @@
             key-positions = <0 1 2>;
             bindings = <&kp LC(GRAVE)>;
         };
+
+        combo_ty {
+            timeout-ms = <50>;
+            key-positions = <5 6>;
+            bindings = <&macro_1>;
+        };
     };
 };
 
