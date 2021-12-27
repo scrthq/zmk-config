@@ -86,6 +86,13 @@
             layers = <QWERTY>;
         };
 
+        combo_capsword {
+            timeout-ms = <50>;
+            key-positions = <12 23>;
+            bindings = <&caps_word>;
+            layers = <QWERTY>;
+        };
+
         combo_ty {
             timeout-ms = <50>;
             key-positions = <5 6>;
