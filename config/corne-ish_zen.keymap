@@ -12,7 +12,7 @@
 #if (__has_include("local_macros.h"))
     #include "local_macros.h"
 #else
-    #define mac_ty <&kp T>, <&kp Y>
+    #define mac_rtyu <&kp R>, <&kp T>, <&kp Y>, <&kp U>
     #define mac_gh <&kp G>, <&kp H>
     #define mac_bn <&kp B>, <&kp N>
     #define mac_tl <&kp T>, <&kp L>
@@ -43,11 +43,11 @@
 
 / {
     behaviors {
-        macro_ty: macro_ty {
+        macro_rtyu: macro_rtyu {
             compatible = "zmk,behavior-macro";
-            label = "mac_ty";
+            label = "mac_rtyu";
             #binding-cells = <0>;
-            bindings = mac_ty;
+            bindings = mac_rtyu;
         };
         macro_gh: macro_gh {
             compatible = "zmk,behavior-macro";
@@ -93,11 +93,11 @@
             layers = <QWERTY>;
         };
 
-        combo_ty {
+        combo_rtyu {
             timeout-ms = <50>;
-            key-positions = <5 6>;
-            bindings = <&macro_ty>;
-            layers = <ADJUST>;
+            key-positions = <4 5 6 7>;
+            bindings = <&macro_rtyu>;
+            layers = <QWERTY>;
         };
 
         combo_gh {
@@ -180,9 +180,9 @@
         config_layer {
             label = "CONFIG";
             bindings = <
-                &reset     &none        &none        &none        &none        &bootloader     &bootloader &none &none &none &none &kp DELETE
+                &reset     &none        &none        &none        &none        &none           &none &none &none &none &none &kp DELETE
                 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &none &none &none &none &none &none
-                &none      &none        &none        &none        &none        &none           &none &none &none &none &none &none
+                &none      &bootloader  &none        &none        &none        &none           &none &none &none &none &none &none
                                     &mo CONFIG &mo NUMROW &kp LCTL                                &kp SPC &mo ADJUST &kp F13
             >;
         };
