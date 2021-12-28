@@ -14,7 +14,7 @@
 #else
     #define mac_rtyu <&kp R>, <&kp T>, <&kp Y>, <&kp U>
     #define mac_gh <&kp G>, <&kp H>
-    #define mac_vbnm <&kp V>, <&kp B>, <&kp N>, <&kp M>-
+    #define mac_vbnm <&kp V>, <&kp B>, <&kp N>, <&kp M>
     #define mac_tl <&kp T>, <&kp L>
 #endif
 
@@ -109,7 +109,7 @@
 
         combo_vbnm {
             timeout-ms = <50>;
-            key-positions = <29 30>;
+            key-positions = <28 29 30 31>;
             bindings = <&macro_vbnm>;
             layers = <QWERTY>;
         };
