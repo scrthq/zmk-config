@@ -14,7 +14,7 @@
 #else
     #define mac_rtyu <&kp R>, <&kp T>, <&kp Y>, <&kp U>
     #define mac_gh <&kp G>, <&kp H>
-    #define mac_bn <&kp B>, <&kp N>
+    #define mac_vbnm <&kp V>, <&kp B>, <&kp N>, <&kp M>-
     #define mac_tl <&kp T>, <&kp L>
 #endif
 
@@ -55,11 +55,11 @@
             #binding-cells = <0>;
             bindings = mac_gh;
         };
-        macro_bn: macro_bn {
+        macro_vbnm: macro_vbnm {
             compatible = "zmk,behavior-macro";
-            label = "mac_bn";
+            label = "mac_vbnm";
             #binding-cells = <0>;
-            bindings = mac_bn;
+            bindings = mac_vbnm;
         };
         macro_tl: macro_tl {
             compatible = "zmk,behavior-macro";
@@ -104,21 +104,21 @@
             timeout-ms = <50>;
             key-positions = <17 18>;
             bindings = <&macro_gh>;
-            layers = <ADJUST>;
+            layers = <QWERTY>;
         };
 
-        combo_bn {
+        combo_vbnm {
             timeout-ms = <50>;
             key-positions = <29 30>;
-            bindings = <&macro_bn>;
-            layers = <ADJUST>;
+            bindings = <&macro_vbnm>;
+            layers = <QWERTY>;
         };
 
         combo_tl {
             timeout-ms = <50>;
             key-positions = <5 21>;
             bindings = <&macro_tl>;
-            layers = <ADJUST>;
+            layers = <QWERTY>;
         };
     };
 
