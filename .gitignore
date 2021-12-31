@@ -6,5 +6,5 @@ tools/
 .west/
 firmware/
 *.uf2
-**/local_macros.h
+**/local_macros.*
 local_only/
