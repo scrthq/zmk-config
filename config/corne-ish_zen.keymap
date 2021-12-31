@@ -109,7 +109,7 @@
 
         combo_th {
             timeout-ms = <50>;
-            key-positions = <5 18>;
+            key-positions = <9 10 11>;
             bindings = <&macro_th>;
             layers = <QWERTY>;
         };
@@ -122,7 +122,9 @@
         };
     };
 
-    conditional_layers {};
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -171,8 +173,8 @@
             label = "ADJUST";
             bindings = <
                 &kp LC(GRAVE)  &kp F2  &kp F3   &kp F4    &kp F5 &kp F6    &kp F7   &kp F8   &kp F9 &kp F10   &kp F11 &kp F12
-                &kp CAPS       &kp INS &kp HOME &kp PG_UP &none  &none     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none   &none
-                &tog NUMPAD    &kp DEL &kp END  &kp PG_DN &none  &none     &none    &none    &none  &none     &none   &bootloader
+                &kp GRAVE      &kp INS &kp HOME &kp PG_UP &none  &none     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none   &none
+                &tog NUMPAD    &kp DEL &kp END  &kp PG_DN &none  &none     &none    &none    &none  &none     &none   &none
                                     &kp LGUI &mo NUMROW &kp LCTL    &kp SPC &mo ADJUST &tog GAMING
             >;
         };
@@ -180,9 +182,9 @@
         config_layer {
             label = "CONFIG";
             bindings = <
-                &reset     &none        &none        &none        &none        &none           &none &none &none &none &none &kp DELETE
+                &none      &none        &none        &none        &none        &none           &none &none &none &none &none &kp DELETE
                 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &none &none &none &none &none &none
-                &none      &bootloader  &none        &none        &none        &none           &none &none &none &none &none &none
+                &none      &none        &none        &none        &none        &none           &none &none &none &none &none &none
                                     &mo CONFIG &mo NUMROW &kp LCTL                                &kp SPC &mo ADJUST &kp F13
             >;
         };
@@ -192,7 +194,7 @@
             bindings = <
                 &kp TAB         &kp Q      &kp W      &kp E      &kp R       &kp T        &kp Y &kp U &kp I    &kp O   &kp P    &kp BKSP
                 &mt LCTL MINUS  &kp A      &kp S      &kp D      &kp F       &kp G        &kp H &kp J &kp K    &kp L   &kp SEMI &kp SQT
-                &mt LSHIFT LPAR &kp Z      &kp K_CUT  &kp K_COPY &kp K_PASTE &kp B        &kp N &kp M &kp CMMA &kp DOT &kp FSLH &mt RSHIFT RPAR
+                &mt LSHIFT LPAR &kp Z      &kp K_CUT  &kp K_COPY &kp K_PASTE &kp B        &kp N &kp M &kp CMMA &kp DOT &kp FSLH &macro_th
                             &kp LGUI &lt NUMROW SPC &mt LALT SPC                              &kp ENTER &lt ADJUST LEFT_ARROW &kp RIGHT_ARROW
             >;
         };

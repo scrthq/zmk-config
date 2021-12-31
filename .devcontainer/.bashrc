@@ -10,9 +10,9 @@ function update() {
 
 function cp_firmware() {
   if [[ `pwd` == "/home/luke/CloudCity/zmk-config" ]]; then
-    [[ -d /mnt/zmk ]] || mkdir /mnt/zmk
-    [[ -d /mnt/zmk/zen-mk ]] || sudo mount -t cifs -o username=nate //192.168.86.240/e/Git /mnt/zmk
-    sudo cp firmware/* /mnt/zmk/zen-mk/firmware
+    [[ -d /mnt/e ]] || mkdir /mnt/e
+    [[ -d /mnt/e/Git/zen-mk ]] || sudo mount -t cifs -o username=nate,uid=1000,gid=1000 //192.168.86.240/e /mnt/e
+    sudo cp firmware/* /mnt/e/Git/zen-mk/firmware
   fi
 }
 
@@ -42,8 +42,10 @@ EOH
   cp build/zephyr/zmk.uf2 firmware/corneish_zen_right.uf2
   cp_firmware
   END=$(date)
+  echo "---------------------"
   echo "Started : ${START}"
   echo "Ended   : ${END}"
+  echo "---------------------"
 }
 
 if [[ ! -f ~/west_initialized.txt ]]; then
