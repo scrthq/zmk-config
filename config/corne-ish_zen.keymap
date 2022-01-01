@@ -34,7 +34,7 @@
 &lt {
     flavor = "balanced";
     tapping-term-ms = <150>;
-    quick_tap_ms = <0>;
+    quick_tap_ms = <10>;
 };
 
 &caps_word {
@@ -58,6 +58,7 @@
         macro_th: macro_th {
             compatible = "zmk,behavior-macro";
             label = "mac_th";
+            sleep = <50>;
             #binding-cells = <0>;
             bindings = mac_th;
         };

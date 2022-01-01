@@ -21,7 +21,7 @@ function build() {
   START=$(date)
   GITHUB_WORKSPACE=$(pwd)
   [[ -d firmware ]] || mkdir firmware
-  [[ -d build ]] && rm -rf build
+  # [[ -d build ]] && rm -rf build
   cat << EOH
 ------------------
 
