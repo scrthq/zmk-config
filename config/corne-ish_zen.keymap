@@ -9,7 +9,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-#include "defines.dtsi"
+#include "defines.h"
 
 &mt {
     flavor = "hold-preferred";
@@ -92,13 +92,6 @@
             layers = <WNDOWS MACOSX>;
         };
 
-        combo_test_zeroes {
-            timeout-ms = <50>;
-            key-positions = <9 10 11>;
-            bindings = <&macro_test_zeroes>;
-            layers = <WNDOWS MACOSX>;
-        };
-
         combo_tl {
             timeout-ms = <50>;
             key-positions = <5 21>;
@@ -114,24 +107,86 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // default_layer {
-        //     label = "WNDOWS";
-        //     bindings = <
-        //         &kp TAB           &kp Q    &kp W    &kp E    &kp R    &kp T        &kp Y    &kp U    &kp I    &kp O    &kp P    &kp BKSP
-        //         &lt WINKEY MINUS    &kp A    &kp S    &kp D    &kp F    &kp G        &kp H    &kp J    &kp K    &kp L    &kp SEMI &kp SQT
-        //         &mt LSHIFT LPAR   &kp Z    &kp X    &kp C    &kp V    &kp B        &kp N    &kp M    &kp CMMA &kp DOT  &kp FSLH &mt RSHIFT RPAR
-        //                 &kp LGUI &lt NUMROW SPC &mt LCTL SPC                           &mt LALT ENTER &lt ADJUST LEFT_ARROW &mt LA(LCTL) RIGHT_ARROW
-        //     >;
-        // };
-
         default_layer {
             label = "WNDOWS";
-            bindings = OS_QWERTY(WINKEY);
+            bindings = <
+//+---------|---------|---------|---------|---------|---------+                   +---------|---------|---------|---------|---------|---------+
+&kp TAB         &kp Q    &kp W     &kp E     &kp R     &kp T                          &kp Y    &kp U     &kp I     &kp O     &kp P    &kp BKSP
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
+&lt WINKEY MINUS &kp A    &kp S     &kp D     &kp F     &kp G                         &kp H    &kp J     &kp K     &kp L   &kp SEMI   &mt Z_MEH SQT
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
+&mt LSHIFT LPAR &kp Z    &kp X     &kp C     &kp V     &kp B                          &kp N    &kp M   &kp CMMA   &kp DOT  &kp FSLH   &mt RSHIFT RPAR
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
+            &kp LCTL            &lt NUMROW SPC      &mt LALT SPC                  &mt LGUI ENTER   &lt ADJUST LEFT_ARROW   &mt LA(LCTL) RIGHT_ARROW
+
+//         +---------|          |---------|         |---------|                   |---------|         |---------|         |---------|
+            >;
         };
+
+        // default_layer {
+        //     label = "WNDOWS";
+        //     bindings = OS_QWERTY(WINKEY);
+        // };
 
         macos_layer {
             label = "MACOSX";
-            bindings = OS_QWERTY(MACKEY);
+            bindings = <
+//+---------|---------|---------|---------|---------|---------+                   +---------|---------|---------|---------|---------|---------+
+    &trans    &trans    &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
+&lt MACKEY MINUS &trans &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
+    &trans    &trans    &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------+
+                                  &kp LALT  &trans  &mt LCTL SPC                     &trans    &trans    &trans
+
+//                              +---------|---------|---------|                   |---------|---------|---------+
+            >;
+        };
+
+
+        winkey_layer {
+            label = "WINKEY";
+            bindings = <
+//+---------|---------|---------|---------|---------|---------+                   +---------|---------|---------|---------|---------|---------+
+    &trans    &trans    &kp LC(BKSP) &trans &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
+    &trans    &kp LC(A) &kp LC(S) &trans    &kp LC(F)  &trans                        &kp LC(H) &trans    &trans    &trans   &trans     &trans
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
+    &trans    &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V)  &trans                        &trans    &trans    &trans   &trans &kp LC(SLASH) &trans
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------+
+                                  &trans    &trans     &trans                        &trans    &trans    &trans
+
+//                              +---------|---------|---------|                   |---------|---------|---------+
+            >;
+        };
+
+        mackey_layer {
+            label = "MACKEY";
+            bindings = <
+//+---------|---------|---------|---------|---------|---------+                   +---------|---------|---------|---------|---------|---------+
+    &trans    &trans    &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
+    &trans    &kp LG(A) &kp LG(S) &trans    &kp LG(F)  &trans                      &kp LG(H)   &trans    &trans    &trans   &trans     &trans
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
+    &trans    &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V)  &trans                        &trans    &trans    &trans    &trans   &trans     &trans
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------+
+                                  &trans    &trans     &trans                        &trans    &trans    &trans
+
+//                              +---------|---------|---------|                   |---------|---------|---------+
+            >;
         };
 
         gaming_layer {
@@ -160,7 +215,7 @@
                 &kp ESC   &kp N1 &kp N2 &kp N3    &kp N4    &kp N5       &kp N6   &kp N7   &kp N8 &kp N9    &kp N0   &kp BSPC
                 &kp GRAVE &none  &none  &kp PSCRN &kp MINUS &kp EQUAL    &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp SEMI &none
                 &trans    &none  &none  &kp BSLH  &kp LBKT  &kp RBKT     &none    &none    &kp CMMA &kp DOT &kp FSLH &trans
-                                    &mo CONFIG &mo NUMROW &kp LCTL    &kp ENTER &mo ADJUST &kp F13
+                                    &mo CONFIG &mo NUMROW &kp LALT    &kp LGUI &mo ADJUST &kp F13
             >;
         };
 
@@ -170,7 +225,7 @@
                 &kp ESC       &kp F1  &kp F2   &kp F3    &kp F4 &kp F5    &kp F6   &kp F7   &kp F8 &kp F9    &kp F10 &kp F12
                 &kp GRAVE     &kp INS &kp HOME &kp PG_UP &none  &none     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none   &kp PRINTSCREEN
                 &trans        &kp DEL &kp END  &kp PG_DN &none  &none     &none    &none    &none  &none     &none   &macro_test_zeroes
-                                    &kp LGUI &mo NUMROW &kp LCTL    &kp SPC &mo ADJUST &tog GAMING
+                                    &kp LGUI &mo NUMROW &kp LALT    &kp SPC &mo ADJUST &tog GAMING
             >;
         };
 
@@ -180,48 +235,8 @@
                 &bootloader &none        &none        &tog MACOSX  &reset       &none           &none &none &none &none &none &kp DELETE
                 &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &none &none &none &none &none &none
                 &none       &none        &none        &none        &none        &none           &none &none &none &none &none &none
-                                    &mo CONFIG &mo NUMROW &kp LCTL                                &kp SPC &mo ADJUST &kp F13
+                                    &mo CONFIG &mo NUMROW &kp LALT                                &kp SPC &mo ADJUST &kp F13
             >;
         };
-
-
-        winkey_layer {
-            label = "WINKEY";
-            bindings = <
-//+---------|---------|---------|---------|---------|---------+                   +---------|---------|---------|---------|---------|---------+
-    &trans    &trans    &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
-
-//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
-    &trans    &kp LC(A) &kp LC(S) &trans    &kp LC(F)  &trans                        &kp LC(H) &trans    &trans    &trans   &trans     &trans
-
-//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
-    &trans    &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V)  &trans                        &trans    &trans    &trans   &trans &kp LC(SLASH) &trans
-
-//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------+
-                                  &trans    &trans     &trans                        &trans    &trans    &trans
-
-//                              +---------|---------|---------|                   |---------|---------|---------+
-                        >;
-        };
-
-        mackey_layer {
-            label = "MACKEY";
-            bindings = <
-//+---------|---------|---------|---------|---------|---------+                   +---------|---------|---------|---------|---------|---------+
-    &trans    &trans    &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
-
-//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
-    &trans    &kp LG(A) &kp LG(S) &trans    &kp LG(F)  &trans                      &kp LG(H)   &trans    &trans    &trans   &trans     &trans
-
-//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
-    &trans    &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V)  &trans                        &trans    &trans    &trans    &trans   &trans     &trans
-
-//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------+
-                                  &trans    &trans     &trans                        &trans    &trans    &trans
-
-//                              +---------|---------|---------|                   |---------|---------|---------+
-                        >;
-        };
-
     };
 };
