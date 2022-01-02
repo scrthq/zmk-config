@@ -9,22 +9,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-#if (__has_include("local_macros.dtsi"))
-    #include "local_macros.dtsi"
-#else
-    #define mac_rtyu <&kp R>, <&kp T>, <&kp Y>, <&kp U>
-    #define mac_gh <&kp G>, <&kp H>
-    #define mac_th <&kp T>, <&kp H>
-    #define mac_tl <&kp T>, <&kp L>
-#endif
-
-#define QWERTY 0
-#define GAMING 1
-#define NUMPAD 2
-#define NUMROW 3
-#define ADJUST 4
-#define CONFIG 5
-#define OSKEYS 6
+#include "defines.dtsi"
 
 &mt {
     flavor = "hold-preferred";
@@ -77,49 +62,49 @@
             timeout-ms = <50>;
             key-positions = <0 1>;
             bindings = <&kp ESC>;
-            layers = <QWERTY>;
+            layers = <WNDOWS MACOSX>;
         };
 
         combo_ctgrv {
             timeout-ms = <50>;
             key-positions = <0 1 2>;
             bindings = <&kp LC(GRAVE)>;
-            layers = <QWERTY>;
+            layers = <WNDOWS MACOSX>;
         };
 
         combo_capsword {
             timeout-ms = <50>;
             key-positions = <12 23>;
             bindings = <&caps_word>;
-            layers = <QWERTY>;
+            layers = <WNDOWS MACOSX>;
         };
 
         combo_rtyu {
             timeout-ms = <50>;
             key-positions = <4 5 6 7>;
             bindings = <&macro_rtyu>;
-            layers = <QWERTY>;
+            layers = <WNDOWS MACOSX>;
         };
 
         combo_gh {
             timeout-ms = <50>;
             key-positions = <17 18>;
             bindings = <&macro_gh>;
-            layers = <QWERTY>;
+            layers = <WNDOWS MACOSX>;
         };
 
         combo_th {
             timeout-ms = <50>;
             key-positions = <9 10 11>;
             bindings = <&macro_th>;
-            layers = <QWERTY>;
+            layers = <WNDOWS MACOSX>;
         };
 
         combo_tl {
             timeout-ms = <50>;
             key-positions = <5 21>;
             bindings = <&macro_tl>;
-            layers = <QWERTY>;
+            layers = <WNDOWS MACOSX>;
         };
     };
 
@@ -130,14 +115,24 @@
     keymap {
         compatible = "zmk,keymap";
 
+        // default_layer {
+        //     label = "WNDOWS";
+        //     bindings = <
+        //         &kp TAB           &kp Q &kp W &kp E &kp R &kp T        &kp Y          &kp U &kp I    &kp O   &kp P    &kp BKSP
+        //         &mt LCTL MINUS  &kp A &kp S &kp D &kp F &kp G        &kp H          &kp J &kp K    &kp L   &kp SEMI &kp SQT
+        //         &mt LSHIFT LPAR   &kp Z &kp X &kp C &kp V &kp B        &kp N          &kp M &kp CMMA &kp DOT &kp FSLH &mt RSHIFT RPAR
+        //                     &kp LGUI &lt NUMROW SPC &lt OSKEYS SPC  &mt LALT ENTER &lt ADJUST LEFT_ARROW &mt LA(LCTL) RIGHT_ARROW
+        //     >;
+        // };
+
         default_layer {
-            label = "QWERTY";
-            bindings = <
-                &kp TAB           &kp Q &kp W &kp E &kp R &kp T        &kp Y          &kp U &kp I    &kp O   &kp P    &kp BKSP
-                &mt LCTL MINUS  &kp A &kp S &kp D &kp F &kp G        &kp H          &kp J &kp K    &kp L   &kp SEMI &kp SQT
-                &mt LSHIFT LPAR   &kp Z &kp X &kp C &kp V &kp B        &kp N          &kp M &kp CMMA &kp DOT &kp FSLH &mt RSHIFT RPAR
-                            &kp LGUI &lt NUMROW SPC &lt OSKEYS SPC  &mt LALT ENTER &lt ADJUST LEFT_ARROW &mt LA(LCTL) RIGHT_ARROW
-            >;
+            label = "WNDOWS";
+            bindings = OS_QWERTY(WINKEY);
+        };
+
+        macos_layer {
+            label = "MACOSX";
+            bindings = OS_QWERTY(MACKEY);
         };
 
         gaming_layer {
@@ -151,14 +146,14 @@
         };
 
         numpad_layer {
-                label = "NUMPAD";
-                bindings = <
-                    &kp TAB     &none &none &none &none &none    &kp KP_EQUAL    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS &kp BSPC
-                    &kp KP_NLCK &none &none &none &none &none    &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS  &none
-                    &tog NUMPAD &none &none &none &none &none    &kp KP_SLASH    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_ENTER &none
-                            &mo CONFIG &mo NUMROW &kp LCTL    &kp SPC &kp KP_N0 &kp KP_DOT
-                >;
-            };
+            label = "NUMPAD";
+            bindings = <
+                &kp TAB     &none &none &none &none &none    &kp KP_EQUAL    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS &kp BSPC
+                &kp KP_NLCK &none &none &none &none &none    &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS  &none
+                &tog NUMPAD &none &none &none &none &none    &kp KP_SLASH    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_ENTER &none
+                        &mo CONFIG &mo NUMROW &kp LCTL    &kp SPC &kp KP_N0 &kp KP_DOT
+            >;
+        };
 
         numrow_layer {
             label = "NUMROW";
@@ -173,9 +168,9 @@
         adjust_layer {
             label = "ADJUST";
             bindings = <
-                &kp LC(GRAVE)  &kp F2  &kp F3   &kp F4    &kp F5 &kp F6    &kp F7   &kp F8   &kp F9 &kp F10   &kp F11 &kp F12
-                &kp GRAVE      &kp INS &kp HOME &kp PG_UP &none  &none     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none   &none
-                &tog NUMPAD    &kp DEL &kp END  &kp PG_DN &none  &none     &none    &none    &none  &none     &none   &none
+                &kp ESC       &kp F1  &kp F2   &kp F3    &kp F4 &kp F5    &kp F6   &kp F7   &kp F8 &kp F9    &kp F10 &kp F12
+                &kp GRAVE     &kp INS &kp HOME &kp PG_UP &none  &none     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none   &kp PRINTSCREEN
+                &trans        &kp DEL &kp END  &kp PG_DN &none  &none     &none    &none    &none  &none     &none   &none
                                     &kp LGUI &mo NUMROW &kp LCTL    &kp SPC &mo ADJUST &tog GAMING
             >;
         };
@@ -183,21 +178,51 @@
         config_layer {
             label = "CONFIG";
             bindings = <
-                &none      &none        &none        &none        &none        &none           &none &none &none &none &none &kp DELETE
-                &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &none &none &none &none &none &none
-                &none      &none        &none        &none        &none        &none           &none &none &none &none &none &none
+                &bootloader &none        &none        &tog MACOSX  &reset       &none           &none &none &none &none &none &kp DELETE
+                &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &none &none &none &none &none &none
+                &none       &none        &none        &none        &none        &none           &none &none &none &none &none &none
                                     &mo CONFIG &mo NUMROW &kp LCTL                                &kp SPC &mo ADJUST &kp F13
             >;
         };
 
-        os_layer {
-            label = "OSKEYS";
+
+        winkey_layer {
+            label = "WINKEY";
             bindings = <
-                &kp TAB         &kp Q      &kp W      &kp E      &kp R       &kp T        &kp Y &kp U &kp I    &kp O   &kp P    &kp BKSP
-                &mt LCTL MINUS  &kp A      &kp S      &kp D      &kp F       &kp G        &kp H &kp J &kp K    &kp L   &kp SEMI &kp SQT
-                &mt LSHIFT LPAR &kp Z      &kp K_CUT  &kp K_COPY &kp K_PASTE &kp B        &kp N &kp M &kp CMMA &kp DOT &kp FSLH &macro_th
-                            &kp LGUI &lt NUMROW SPC &mt LALT SPC                              &kp ENTER &lt ADJUST LEFT_ARROW &kp RIGHT_ARROW
-            >;
+//+---------|---------|---------|---------|---------|---------+                   +---------|---------|---------|---------|---------|---------+
+    &trans    &trans    &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
+    &trans    &trans    &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
+    &trans    &trans    &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------+
+                                  &trans    &trans     &trans                        &trans    &trans    &trans
+
+//                              +---------|---------|---------|                   |---------|---------|---------+
+                        >;
         };
+
+        mackey_layer {
+            label = "MACKEY";
+            bindings = <
+//+---------|---------|---------|---------|---------|---------+                   +---------|---------|---------|---------|---------|---------+
+    &trans    &trans    &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
+    &trans    &trans    &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
+    &trans    &trans    &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
+
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------+
+                                  &trans    &trans     &trans                        &trans    &trans    &trans
+
+//                              +---------|---------|---------|                   |---------|---------|---------+
+                        >;
+        };
+
     };
 };
