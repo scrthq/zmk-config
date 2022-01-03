@@ -19,7 +19,7 @@
     #define mpin <&kp T>
 #endif
 
-#define Z_MEH LS(LA(LCTL))
+#define MEH LS(LA(LCTL))
 
 #define WNDOWS 0
 #define MACOSX 1
