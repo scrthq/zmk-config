@@ -15,6 +15,8 @@
     #define mac_gh <&kp G>, <&kp H>
     #define test_zeroes <&kp T>
     #define mac_tl <&kp T>, <&kp L>
+    #define chonk <&kp T>
+    #define mpin <&kp T>
 #endif
 
 #define Z_MEH LS(LA(LCTL))

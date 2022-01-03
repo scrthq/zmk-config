@@ -64,9 +64,21 @@
             #binding-cells = <0>;
             bindings = <&kp LC(K)>, <&kp M>;
         };
-        qht: quote_holdtap {
+        chonker: macro_chonker {
+            compatible = "zmk,behavior-macro";
+            label = "CHONKER";
+            #binding-cells = <0>;
+            bindings = chonk;
+        };
+        macpin: macro_mpin {
+            compatible = "zmk,behavior-macro";
+            label = "MPIN";
+            #binding-cells = <0>;
+            bindings = mpin;
+        };
+        lht: long_hold_tap {
             compatible = "zmk,behavior-hold-tap";
-            label = "QUOTE_HOLDTAP";
+            label = "LONG_HOLDTAP";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
@@ -98,27 +110,6 @@
             bindings = <&caps_word>;
             layers = <WNDOWS MACOSX>;
         };
-
-        // combo_rtyu {
-        //     timeout-ms = <50>;
-        //     key-positions = <4 5 6 7>;
-        //     bindings = <&macro_rtyu>;
-        //     layers = <WNDOWS MACOSX>;
-        // };
-
-        // combo_gh {
-        //     timeout-ms = <50>;
-        //     key-positions = <17 18>;
-        //     bindings = <&macro_gh>;
-        //     layers = <WNDOWS MACOSX>;
-        // };
-
-        // combo_tl {
-        //     timeout-ms = <50>;
-        //     key-positions = <5 21>;
-        //     bindings = <&macro_tl>;
-        //     layers = <WNDOWS MACOSX>;
-        // };
     };
 
     conditional_layers {
@@ -135,7 +126,7 @@
 &kp TAB         &kp Q    &kp W     &kp E     &kp R     &kp T                          &kp Y    &kp U     &kp I     &kp O     &kp P    &kp BKSP
 
 //+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
-&lt WINKEY MINUS &kp A    &kp S &lt NUMPAD D &kp F     &kp G                         &kp H    &kp J     &kp K     &kp L   &kp SEMI   &qht Z_MEH SQT
+&lt WINKEY MINUS &kp A    &kp S &lt NUMPAD D &kp F     &kp G                         &kp H    &kp J     &kp K     &kp L   &kp SEMI   &lht Z_MEH SQT
 
 //+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
 &mt LSHIFT LPAR &kp Z    &kp X     &kp C     &kp V     &kp B                          &kp N    &kp M   &kp CMMA   &kp DOT  &kp FSLH   &mt RSHIFT RPAR
@@ -172,16 +163,16 @@
             bindings = <
 //+---------|---------|---------|---------|---------|---------+                   +---------|---------|---------|---------|---------|---------+
  &trans &kp LC(W)  &kp LC(BKSP) &tog MACOSX &kp LC(R)  &kp LC(LS(T))         &kp LC(Y) &kp LS(LC(N7)) &kp LS(LC(N8)) &kp LC(MINUS) &kp LC(PLUS) &kp PRINTSCREEN
-//+         |         |del 1 wrd| togl OS |reload tab|reopen tab|
+//+         |close tab|del 1 wrd|toggle OS|reload tab|reopen tb|                  |   undo  |ord list |bull list| zoom -  | zoom +  |prntscrn |
 //+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
     &trans  &kp LC(A) &kp LC(S) &kp LS(LC(I)) &kp LC(F) &kp LG(V)                    &kp LC(H) &trans  &trans  &kp LS(LC(L))  &kp LA(LS(A)) &trans
-
+//+         |selct all|   save  |dev tools|  find   |clipboard|                   |find repl|         |         | hi-light|blok cmnt|         |
 //+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
 &mt LSFT HOME &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V)  &kp LS(LC(V))                 &trans   &lselwin  &trans   &trans &kp LC(SLASH) &mt RSHFT END
-
+//+  home   |  undo   |   cut   |   copy  |  paste  |paste pln|                   |         |lang slct|         |         | cmd + / |   end   |
 //+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------+
-                    &kp LC(LEFT_BRACKET) &kp LC(RIGHT_BRACKET)  &macro_rtyu       &macro_gh    &kp LC(LEFT) &kp LC(RIGHT)
-
+                    &kp LC(LEFT_BRACKET) &kp LC(RIGHT_BRACKET)  &trans       &trans    &kp LC(LEFT) &kp LC(RIGHT)
+//+                             | dedent  |  indent |         |                   |         |left1word|rght1word|
 //                              +---------|---------|---------|                   |---------|---------|---------+
             >;
         };
@@ -191,16 +182,16 @@
             bindings = <
 //+---------|---------|---------|---------|---------|---------+                   +---------|---------|---------|---------|---------|---------+
 &trans &kp LG(W) &kp LA(BKSP) &tog MACOSX &kp LG(LS(R)) &kp LG(LS(T))/**/&kp LS(LG(Z)) &kp LS(LG(N7)) &kp LS(LG(N8)) &kp LG(MINUS) &kp LG(PLUS) &kp LG(PRINTSCREEN)
-
+//+         |close tab|del 1 wrd|toggle OS|reload tab|reopen tb|                  |   undo  |ord list |bull list| zoom -  | zoom +  |prntscrn |
 //+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
     &trans  &kp LG(A) &kp LG(S) &kp LG(LA(I)) &kp LG(F)  &kp LG(LA(V))              &kp LA(LG(F)) &trans &trans &kp LS(LG(L)) &kp LA(LS(A)) &trans
-
+//+         |selct all|   save  |dev tools|  find   |clipboard|                   |find repl|         |         | hi-light|blok cmnt|         |
 //+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
 &mt LSFT LG(LEFT) &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V)  &kp LS(LG(V))          &trans    &lselmac   &trans    &trans &kp LG(SLASH) &mt RSFT LG(RIGHT)
-
-//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------+
-                    &kp LG(LEFT_BRACKET) &kp LG(RIGHT_BRACKET)  &macro_rtyu        &macro_gh    &kp LA(LEFT) &kp LA(RIGHT)
-
+//+  home   |  undo   |   cut   |   copy  |  paste  |paste pln|                   |         |lang slct|         |         | cmd + / |   end   |
+//+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
+                    &kp LG(LEFT_BRACKET) &kp LG(RIGHT_BRACKET)  &trans        &trans    &kp LA(LEFT) &kp LA(RIGHT)
+//+                             | dedent  |  indent |         |                   |         |left1word|rght1word
 //                              +---------|---------|---------|                   |---------|---------|---------+
             >;
         };
@@ -248,10 +239,10 @@
         config_layer {
             label = "CONFIG";
             bindings = <
-                &bootloader &none        &none        &tog MACOSX  &reset       &none           &none &none &none &none     &none &kp DELETE
-                &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &none &none &none &macro_tl &none &none
-                &none       &none        &none        &none        &none        &none           &none &none &none &none     &none &none
-                                    &mo CONFIG &mo NUMROW &kp LALT                                &kp SPC &mo ADJUST &kp F13
+                &bootloader &none     &none        &tog MACOSX  &reset       &none              &none   &none       &none     &none     &none    &kp DELETE
+                &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &macpin &macro_rtyu &macro_gh &macro_tl &chonker &none
+                &none       &none        &none        &none        &none        &none           &none   &none       &none     &none     &none    &none
+                                    &mo CONFIG &mo NUMROW &kp LALT                                &kp SPC      &mo ADJUST     &kp F13
             >;
         };
     };
