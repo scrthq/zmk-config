@@ -123,17 +123,17 @@
             label = "WNDOWS";
             bindings = <
 //+---------+---------+---------+---------+---------+---------+                              +---------+---------+---------+---------+---------+---------+
-//!   TAB   |    Q    |    W    |    E    |    R    |    T    |                              |    Y    |    U    |    I    |    O    |    P    |   BSP   |
+//!   TAB   |    Q    |    W    |    E    |    R    |    T    |                              |    Y    |    U    |    I    |    O    |    P    |  BKSPC  |
 //+         |         |         |         |         |         |                              |         |         |         |         |         |         |
 //+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
 //!    -    |    A    |    S    |    D    |    F    |    G    |                              |    H    |    J    |    K    |    L    |    ;    |    '    |
-//+  WINKEY |         |         |   PAD   |         |         |                              |         |         |         |         |         |   MEH   |
+//+ >WINKEY |         |         |   PAD   |         |         |                              |         |         |         |         |         |   MEH   |
 //+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
 //!    (    |    Z    |    X    |    C    |    V    |    B    |                              |    N    |    M    |    ,    |    .    |    /    |    )    |
 //+  SHIFT  |         |         |         |         |         |                              |         |         |         |         |         |  SHIFT  |
 //+---------+---------+---------|---------|---------|---------|---------+          +---------|---------|---------|---------|---------+---------+---------+
-//!                                       |   CTL   |   NUM   |   SPC   |          |   ENT   |   <--   |   -->   |
-//+                                       |         |   ROW   |   ALT   |          |   GUI   |   ADJ   | CTL+ALT |
+//!                                       |   CTL   |  SPACE  |  SPACE  |          |  ENTER  |   <--   |   -->   |
+//+                                       |         | >NUMROW |   ALT   |          |   GUI   | >ADJUST | CTL+ALT |
 //+                                       +---------+---------+---------+          +---------+---------+---------+
 &kp TAB          &kp Q  &kp W &kp E        &kp R     &kp T                         &kp Y    &kp U     &kp I     &kp O       &kp P    &kp BKSP
 &lt WINKEY MINUS &kp A  &kp S &lt NUMPAD D &kp F     &kp G                         &kp H    &kp J     &kp K     &kp L       &kp SEMI &lht MEH SQT
@@ -146,17 +146,17 @@
             label = "MACOSX";
             bindings = <
 //+---------+---------+---------+---------+---------+---------+                              +---------+---------+---------+---------+---------+---------+
-//!   TAB   |    Q    |    W    |    E    |    R    |    T    |                              |    Y    |    U    |    I    |    O    |    P    |   BSP   |
+//!   TAB   |    Q    |    W    |    E    |    R    |    T    |                              |    Y    |    U    |    I    |    O    |    P    |  BKSPC  |
 //+         |         |         |         |         |         |                              |         |         |         |         |         |         |
 //+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
 //!    -    |    A    |    S    |    D    |    F    |    G    |                              |    H    |    J    |    K    |    L    |    ;    |    '    |
-//+  MACKEY |         |         |   PAD   |         |         |                              |         |         |         |         |         |   MEH   |
+//+ >MACKEY |         |         | >NUMPAD |         |         |                              |         |         |         |         |         |   MEH   |
 //+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
 //!    (    |    Z    |    X    |    C    |    V    |    B    |                              |    N    |    M    |    ,    |    .    |    /    |    )    |
 //+  SHIFT  |         |         |         |         |         |                              |         |         |         |         |         |  SHIFT  |
 //+---------+---------+---------|---------|---------|---------|---------+          +---------|---------|---------|---------|---------+---------+---------+
-//!                                       |   ALT   |   NUM   |   SPC   |          |   ENT   |   <--   |   -->   |
-//+                                       |         |   ROW   |   CTL   |          |   GUI   |   ADJ   | CTL+ALT |
+//!                                       |   ALT   |  SPACE  |  SPACE  |          |  ENTER  |   <--   |   -->   |
+//+                                       |         | >NUMROW |   CTL   |          |   GUI   | >ADJUST | CTL+ALT |
 //+                                       +---------+---------+---------+          +---------+---------+---------+
     &trans    &trans    &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
 &lt MACKEY MINUS &trans &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
@@ -170,21 +170,21 @@
             label = "WINKEY";
             bindings = <
 //+---------+---------+---------+---------+---------+---------+                              +---------+---------+---------+---------+---------+---------+
-//!   TAB   |    Q    |    W    |    E    |    R    |    T    |                              |    Y    |    U    |    I    |    O    |    P    |   BSP   |
+//!   TAB   |    Q    |    W    |    E    |    R    |    T    |                              |    Y    |    U    |    I    |    O    |    P    |  BKSPC  |
 //+         |close tab|del 1 wrd|toggle OS|relod tab|reopn tab|                              |   undo  |ord list |bull list| zoom -  | zoom +  |prntscrn |
 //+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
-//!  MAGIC  |    A    |    S    |    D    |    F    |    G    |                              |    H    |    J    |    K    |    L    |    ;    |    '    |
+//!         |    A    |    S    |    D    |    F    |    G    |                              |    H    |    J    |    K    |    L    |    ;    |    '    |
 //+         |selct all|   save  |dev tools|  find   |clipboard|                              |find repl|         |         | hi-light|blok cmnt|         |
 //+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
 //!   HOME  |    Z    |    X    |    C    |    V    |    B    |                              |    N    |    M    |    ,    |    .    |    /    |   END   |
 //+  SHIFT  |  undo   |   cut   |   copy  |  paste  |paste pln|                              |         |lang slct|         |         | cmd + / |  SHIFT  |
 //+---------+---------+---------|---------|---------|---------|---------+          +---------|---------|---------|---------|---------+---------+---------+
-//!                                       |   CTL   |   NUM   |   SPC   |          |   ENT   |   <--   |   -->   |
+//!                                       |   CTL   | >NUMROW |  SPACE  |          |  ENTER  |   <--   |   -->   |
 //+                                       | dedent  |  indent |         |          |         |left1word|rght1word|
 //+                                       +---------+---------+---------+          +---------+---------+---------+
 &trans        &kp LC(W) &kp LC(BKSP) &tog MACOSX   &kp LC(R) &kp LC(LS(T))         &kp LC(Y) &kp LS(LC(N7)) &kp LS(LC(N8)) &kp LC(MINUS) &kp LC(PLUS)  &kp PRINTSCREEN
 &trans        &kp LC(A) &kp LC(S)    &kp LS(LC(I)) &kp LC(F) &kp LG(V)             &kp LC(H) &trans         &trans         &kp LS(LC(L)) &kp LA(LS(A)) &trans
-&mt LSFT HOME &kp LC(Z) &kp LC(X)    &kp LC(C)     &kp LC(V) &kp LS(LC(V))         &trans    &lselwin       &trans         &trans        &kp LC(SLASH) &mt RSHFT END
+&mt LSFT HOME &kp LC(Z) &kp LC(X)    &kp LC(C)     &kp LC(V) &kp LS(LC(V))         &trans    &lselwin       &trans         &trans        &kp LC(FSLH) &mt RSHFT END
                     &kp LC(LEFT_BRACKET) &kp LC(RIGHT_BRACKET)  &trans             &trans    &kp LC(LEFT) &kp LC(RIGHT)
             >;
         };
@@ -193,21 +193,21 @@
             label = "MACKEY";
             bindings = <
 //+---------+---------+---------+---------+---------+---------+                              +---------+---------+---------+---------+---------+---------+
-//!   TAB   |    Q    |    W    |    E    |    R    |    T    |                              |    Y    |    U    |    I    |    O    |    P    |   BSP   |
+//!   TAB   |    Q    |    W    |    E    |    R    |    T    |                              |    Y    |    U    |    I    |    O    |    P    |  BKSPC  |
 //+         |close tab|del 1 wrd|toggle OS|relod tab|reopn tab|                              |   undo  |ord list |bull list| zoom -  | zoom +  |prntscrn |
 //+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
-//!  MAGIC  |    A    |    S    |    D    |    F    |    G    |                              |    H    |    J    |    K    |    L    |    ;    |    '    |
+//!         |    A    |    S    |    D    |    F    |    G    |                              |    H    |    J    |    K    |    L    |    ;    |    '    |
 //+         |selct all|   save  |dev tools|  find   |clipboard|                              |find repl|         |         | hi-light|blok cmnt|         |
 //+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
 //!   HOME  |    Z    |    X    |    C    |    V    |    B    |                              |    N    |    M    |    ,    |    .    |    /    |   END   |
 //+  SHIFT  |  undo   |   cut   |   copy  |  paste  |paste pln|                              |         |lang slct|         |         | cmd + / |  SHIFT  |
 //+---------+---------+---------|---------|---------|---------|---------+          +---------|---------|---------|---------|---------+---------+---------+
-//!                                       |   CTL   |   NUM   |   SPC   |          |   ENT   |   <--   |   -->   |
+//!                                       |   CTL   | >NUMROW |  SPACE  |          |  ENTER  |   <--   |   -->   |
 //+                                       | dedent  |  indent |         |          |         |left1word|rght1word|
 //+                                       +---------+---------+---------+          +---------+---------+---------+
 &trans            &kp LG(W) &kp LA(BKSP) &tog MACOSX   &kp LG(LS(R)) &kp LG(LS(T))     &kp LS(LG(Z)) &kp LS(LG(N7)) &kp LS(LG(N8)) &kp LG(MINUS) &kp LG(PLUS)  &kp LG(PRINTSCREEN)
 &trans            &kp LG(A) &kp LG(S)    &kp LG(LA(I)) &kp LG(F)     &kp LG(LA(V))     &kp LA(LG(F)) &trans         &trans         &kp LS(LG(L)) &kp LA(LS(A)) &trans
-&mt LSFT LG(LEFT) &kp LG(Z) &kp LG(X)    &kp LG(C)     &kp LG(V)     &kp LS(LG(V))     &trans        &lselmac       &trans         &trans        &kp LG(SLASH) &mt RSFT LG(RIGHT)
+&mt LSFT LG(LEFT) &kp LG(Z) &kp LG(X)    &kp LG(C)     &kp LG(V)     &kp LS(LG(V))     &trans        &lselmac       &trans         &trans        &kp LG(FSLH)  &mt RSFT LG(RIGHT)
                     &kp LG(LEFT_BRACKET) &kp LG(RIGHT_BRACKET)  &trans                     &trans    &kp LA(LEFT) &kp LA(RIGHT)
             >;
         };
@@ -215,6 +215,19 @@
         gaming_layer {
             label = "GAMING";
             bindings = <
+//+---------+---------+---------+---------+---------+---------+                              +---------+---------+---------+---------+---------+---------+
+//!   TAB   |    Q    |    W    |    E    |    R    |    T    |                              |    Y    |    U    |    I    |    O    |    P    |  BKSPC  |
+//+         |         |         |         |         |         |                              |         |         |         |         |         |         |
+//+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
+//!   ALT   |    A    |    S    |    D    |    F    |    G    |                              |    H    |    J    |    K    |    L    |    '    |  ENTER  |
+//+         |         |         |         |         |         |                              |         |         |         |         |         |         |
+//+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
+//!  SHIFT  |    Z    |    X    |    C    |    V    |    B    |                              |    N    |    M    |    ,    |    .    |    /    |  SHIFT  |
+//+         |         |         |         |         |         |                              |         |         |         |         |         |         |
+//+---------+---------+---------|---------|---------|---------|---------+          +---------|---------|---------|---------|---------+---------+---------+
+//!                                       |   CTL   | >NUMROW |  SPACE  |          |  SPACE  | >ADJUST |   F13   |
+//+                                       |         |         |         |          |         |         |         |
+//+                                       +---------+---------+---------+          +---------+---------+---------+
                 &kp TAB   &kp Q &kp W &kp E &kp R &kp T    &kp Y &kp U &kp I    &kp O   &kp P    &kp BKSP
                 &kp LALT  &kp A &kp S &kp D &kp F &kp G    &kp H &kp J &kp K    &kp L   &kp QUOT &kp ENTER
                 &kp LSHFT &kp Z &kp X &kp C &kp V &kp B    &kp N &kp M &kp CMMA &kp DOT &kp FSLH &kp RSFT
@@ -225,9 +238,22 @@
         numpad_layer {
             label = "NUMPAD";
             bindings = <
+//+---------+---------+---------+---------+---------+---------+                              +---------+---------+---------+---------+---------+---------+
+//!   TAB   |         |         |         |         |         |                              |    =    |    7    |    8    |    9    |    -    |  BKSPC  |
+//+         |         |         |         |         |         |                              |         |         |         |         |         |         |
+//+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
+//! NUMLOCK |         |         |         |         |         |                              |    *    |    4    |    5    |    6    |    +    |         |
+//+         |         |         |         |         |         |                              |         |         |         |         |         |         |
+//+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
+//!  SHIFT  |         |         |         |         |         |                              |    /    |    1    |    2    |    3    |  ENTER  |  SHIFT  |
+//+         |         |         |         |         |         |                              |         |         |         |         |         |         |
+//+---------+---------+---------|---------|---------|---------|---------+          +---------|---------|---------|---------|---------+---------+---------+
+//!                                       | >CONFIG | >NUMROW |  SPACE  |          |  SPACE  |    0    |    .    |
+//+                                       |         |         |         |          |         |         |         |
+//+                                       +---------+---------+---------+          +---------+---------+---------+
                 &kp TAB     &none &none &none &none &none    &kp EQUAL    &kp N7   &kp N8   &kp N9   &kp MINUS &kp BSPC
                 &kp KP_NLCK &none &none &none &none &none    &kp ASTERISK &kp N4   &kp N5   &kp N6   &kp PLUS  &none
-                &trans      &none &none &none &none &none    &kp SLASH    &kp N1   &kp N2   &kp N3   &kp ENTER &trans
+                &trans      &none &none &none &none &none    &kp FSLH     &kp N1   &kp N2   &kp N3   &kp ENTER &trans
                         &mo CONFIG &mo NUMROW &kp LCTL    &kp SPC &kp N0 &kp DOT
             >;
         };
@@ -235,16 +261,42 @@
         numrow_layer {
             label = "NUMROW";
             bindings = <
-                &kp ESC   &kp N1 &kp N2 &kp N3    &kp N4    &kp N5       &kp N6   &kp N7   &kp N8 &kp N9    &kp N0   &kp BSPC
-                &kp GRAVE &none  &none  &kp PSCRN &kp MINUS &kp EQUAL    &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp SEMI &none
-                &trans    &none  &none  &kp BSLH  &kp LBKT  &kp RBKT     &none    &none    &kp CMMA &kp DOT &kp FSLH &trans
-                                    &mo CONFIG &mo NUMROW &kp LALT    &kp LGUI &mo ADJUST &kp F13
+//+---------+---------+---------+---------+---------+---------+                              +---------+---------+---------+---------+---------+---------+
+//!   ESC   |    1    |    2    |    3    |    4    |    5    |                              |    6    |    7    |    8    |    9    |    0    |  BKSPC  |
+//+         |         |         |         |         |         |                              |         |         |         |         |         |         |
+//+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
+//!  GRAVE  |         |         | SCRNSHT |    -    |    =    |                              |    ←    |    ↑    |    ↓    |    →    |    +    |         |
+//+         |         |         |         |         |         |                              |         |         |         |         |         |         |
+//+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
+//!  SHIFT  |         |         |    \    |    [    |    ]    |                              |         |         |    ,    |    .    |    /    |  SHIFT  |
+//+         |         |         |         |         |         |                              |         |         |         |         |         |         |
+//+---------+---------+---------|---------|---------|---------|---------+          +---------|---------|---------|---------|---------+---------+---------+
+//!                                       | >CONFIG | >NUMROW |  SPACE  |          |   GUI   | >ADJUST |    .    |
+//+                                       |         |         |         |          |         |         |         |
+//+                                       +---------+---------+---------+          +---------+---------+---------+
+    &kp ESC   &kp N1 &kp N2 &kp N3    &kp N4    &kp N5                                       &kp N6   &kp N7   &kp N8 &kp N9    &kp N0   &kp BSPC
+    &kp GRAVE &none  &none  &kp PSCRN &kp MINUS &kp EQUAL                                    &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp SEMI &none
+    &trans    &none  &none  &kp BSLH  &kp LBKT  &kp RBKT                                     &none    &none    &kp CMMA &kp DOT &kp FSLH &trans
+                                         &mo CONFIG &mo NUMROW &kp LALT            &kp LGUI &mo ADJUST &kp F13
             >;
         };
 
         adjust_layer {
             label = "ADJUST";
             bindings = <
+//+---------+---------+---------+---------+---------+---------+                              +---------+---------+---------+---------+---------+---------+
+//!   ESC   |   F1    |   F2    |   F3    |   F4    |   F5    |                              |   F6    |   F7    |   F8    |   F9    |   F10   |   F12   |
+//+         |         |         |         |         |         |                              |         |         |         |         |         |         |
+//+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
+//!  GRAVE  |         |         | SCRNSHT |    -    |    =    |                              |    ←    |    ↑    |    ↓    |    →    |         |         |
+//+         |         |         |         |         |         |                              |         |         |         |         |         |         |
+//+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
+//!  SHIFT  |         |         |    \    |    [    |    ]    |                              |         |         |         |         |         |  SHIFT  |
+//+         |         |         |         |         |         |                              |         |         |         |         |         |         |
+//+---------+---------+---------|---------|---------|---------|---------+          +---------|---------|---------|---------|---------+---------+---------+
+//!                                       | >CONFIG | >NUMROW |  SPACE  |          |   GUI   | >ADJUST | >GAMING |
+//+                                       |         |         |         |          |         |         |         |
+//+                                       +---------+---------+---------+          +---------+---------+---------+
                 &kp ESC       &kp F1  &kp F2   &kp F3    &kp F4 &kp F5    &kp F6   &kp F7   &kp F8 &kp F9    &kp F10 &kp F12
                 &kp GRAVE     &kp INS &kp HOME &kp PG_UP &none  &none     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none   &none
                 &trans        &kp DEL &kp END  &kp PG_DN &none  &none     &none    &none    &none  &none     &none   &trans
