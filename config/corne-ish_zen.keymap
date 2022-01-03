@@ -52,6 +52,18 @@
             #binding-cells = <0>;
             bindings = mac_tl;
         };
+        lselmac: macro_language_select_mac {
+            compatible = "zmk,behavior-macro";
+            label = "LSELMAC";
+            #binding-cells = <0>;
+            bindings = <&kp LG(K)>, <&kp M>;
+        };
+        lselwin: macro_language_select_win {
+            compatible = "zmk,behavior-macro";
+            label = "LSELWIN";
+            #binding-cells = <0>;
+            bindings = <&kp LC(K)>, <&kp M>;
+        };
         qht: quote_holdtap {
             compatible = "zmk,behavior-hold-tap";
             label = "QUOTE_HOLDTAP";
@@ -123,7 +135,7 @@
 &kp TAB         &kp Q    &kp W     &kp E     &kp R     &kp T                          &kp Y    &kp U     &kp I     &kp O     &kp P    &kp BKSP
 
 //+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
-&lt WINKEY MINUS &kp A    &kp S     &kp D     &kp F     &kp G                         &kp H    &kp J     &kp K     &kp L   &kp SEMI   &qht Z_MEH SQT
+&lt WINKEY MINUS &kp A    &kp S &lt NUMPAD D &kp F     &kp G                         &kp H    &kp J     &kp K     &kp L   &kp SEMI   &qht Z_MEH SQT
 
 //+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
 &mt LSHIFT LPAR &kp Z    &kp X     &kp C     &kp V     &kp B                          &kp N    &kp M   &kp CMMA   &kp DOT  &kp FSLH   &mt RSHIFT RPAR
@@ -134,11 +146,6 @@
 //         +---------|          |---------|         |---------|                   |---------|         |---------|         |---------|
             >;
         };
-
-        // default_layer {
-        //     label = "WNDOWS";
-        //     bindings = OS_QWERTY(WINKEY);
-        // };
 
         macos_layer {
             label = "MACOSX";
@@ -164,13 +171,13 @@
             label = "WINKEY";
             bindings = <
 //+---------|---------|---------|---------|---------|---------+                   +---------|---------|---------|---------|---------|---------+
-    &trans    &trans  &kp LC(BKSP) &trans &trans     &kp LC(LS(T))                &kp LC(Y) &kp LS(LC(N7)) &kp LS(LC(N8)) &kp LC(MINUS) &kp LC(PLUS)  &kp PRINTSCREEN
-//!         |         |del 1 wrd|         |         |reopen tab|
+ &trans &kp LC(W)  &kp LC(BKSP) &tog MACOSX &kp LC(R)  &kp LC(LS(T))         &kp LC(Y) &kp LS(LC(N7)) &kp LS(LC(N8)) &kp LC(MINUS) &kp LC(PLUS) &kp PRINTSCREEN
+//+         |         |del 1 wrd| togl OS |reload tab|reopen tab|
 //+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
-    &trans  &kp LC(A) &kp LC(S) &kp LS(LC(I)) &kp LC(F) &kp LG(V)                    &kp LC(H) &trans  &trans  &kp LS(LC(L))  &trans   &trans
+    &trans  &kp LC(A) &kp LC(S) &kp LS(LC(I)) &kp LC(F) &kp LG(V)                    &kp LC(H) &trans  &trans  &kp LS(LC(L))  &kp LA(LS(A)) &trans
 
 //+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
-    &kp HOME  &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V)  &kp LS(LC(V))                 &trans    &trans    &trans   &trans &kp LC(SLASH) &kp END
+&mt LSFT HOME &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V)  &kp LS(LC(V))                 &trans   &lselwin  &trans   &trans &kp LC(SLASH) &mt RSHFT END
 
 //+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------+
                     &kp LC(LEFT_BRACKET) &kp LC(RIGHT_BRACKET)  &macro_rtyu       &macro_gh    &kp LC(LEFT) &kp LC(RIGHT)
@@ -183,13 +190,13 @@
             label = "MACKEY";
             bindings = <
 //+---------|---------|---------|---------|---------|---------+                   +---------|---------|---------|---------|---------|---------+
-    &trans    &trans  &kp LA(BKSP) &trans   &trans     &kp LG(LS(T))           &kp LS(LG(Z)) &kp LS(LG(N7)) &kp LS(LG(N8)) &kp LG(MINUS) &kp LG(PLUS) &kp LG(PRINTSCREEN)
+&trans &kp LG(W) &kp LA(BKSP) &tog MACOSX &kp LG(LS(R)) &kp LG(LS(T))/**/&kp LS(LG(Z)) &kp LS(LG(N7)) &kp LS(LG(N8)) &kp LG(MINUS) &kp LG(PLUS) &kp LG(PRINTSCREEN)
 
 //+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
-    &trans  &kp LG(A) &kp LG(S) &kp LG(LA(I)) &kp LG(F)  &kp LG(LA(V))              &kp LA(LG(F)) &trans &trans &kp LS(LG(L)) &trans   &trans
+    &trans  &kp LG(A) &kp LG(S) &kp LG(LA(I)) &kp LG(F)  &kp LG(LA(V))              &kp LA(LG(F)) &trans &trans &kp LS(LG(L)) &kp LA(LS(A)) &trans
 
 //+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------|
-&kp LG(LEFT) &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V)  &kp LS(LG(V))                        &trans    &trans    &trans    &trans &kp LG(SLASH) &kp LG(RIGHT)
+&mt LSFT LG(LEFT) &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V)  &kp LS(LG(V))          &trans    &lselmac   &trans    &trans &kp LG(SLASH) &mt RSFT LG(RIGHT)
 
 //+---------|---------|---------|---------|---------|---------|                   |---------|---------|---------|---------|---------|---------+
                     &kp LG(LEFT_BRACKET) &kp LG(RIGHT_BRACKET)  &macro_rtyu        &macro_gh    &kp LA(LEFT) &kp LA(RIGHT)
@@ -211,10 +218,10 @@
         numpad_layer {
             label = "NUMPAD";
             bindings = <
-                &kp TAB     &none &none &none &none &none    &kp KP_EQUAL    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS &kp BSPC
-                &kp KP_NLCK &none &none &none &none &none    &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS  &none
-                &tog NUMPAD &none &none &none &none &none    &kp KP_SLASH    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_ENTER &none
-                        &mo CONFIG &mo NUMROW &kp LCTL    &kp SPC &kp KP_N0 &kp KP_DOT
+                &kp TAB     &none &none &none &none &none    &kp EQUAL    &kp N7   &kp N8   &kp N9   &kp MINUS &kp BSPC
+                &kp KP_NLCK &none &none &none &none &none    &kp ASTERISK &kp N4   &kp N5   &kp N6   &kp PLUS  &none
+                &trans      &none &none &none &none &none    &kp SLASH    &kp N1   &kp N2   &kp N3   &kp ENTER &trans
+                        &mo CONFIG &mo NUMROW &kp LCTL    &kp SPC &kp N0 &kp DOT
             >;
         };
 
@@ -233,7 +240,7 @@
             bindings = <
                 &kp ESC       &kp F1  &kp F2   &kp F3    &kp F4 &kp F5    &kp F6   &kp F7   &kp F8 &kp F9    &kp F10 &kp F12
                 &kp GRAVE     &kp INS &kp HOME &kp PG_UP &none  &none     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none   &none
-                &trans        &kp DEL &kp END  &kp PG_DN &none  &none     &none    &none    &none  &none     &none   &none
+                &trans        &kp DEL &kp END  &kp PG_DN &none  &none     &none    &none    &none  &none     &none   &trans
                                     &kp LGUI &mo NUMROW &kp LALT    &kp SPC &mo ADJUST &tog GAMING
             >;
         };
@@ -241,9 +248,9 @@
         config_layer {
             label = "CONFIG";
             bindings = <
-                &bootloader &none        &none        &tog MACOSX  &reset       &none           &none &none &none &none &none &kp DELETE
-                &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &none &none &none &none &none &none
-                &none       &none        &none        &none        &none        &none           &none &none &none &none &none &none
+                &bootloader &none        &none        &tog MACOSX  &reset       &none           &none &none &none &none     &none &kp DELETE
+                &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &none &none &none &macro_tl &none &none
+                &none       &none        &none        &none        &none        &none           &none &none &none &none     &none &none
                                     &mo CONFIG &mo NUMROW &kp LALT                                &kp SPC &mo ADJUST &kp F13
             >;
         };
