@@ -132,13 +132,13 @@
 //!    (    |    Z    |    X    |    C    |    V    |    B    |                              |    N    |    M    |    ,    |    .    |    /    |    )    |
 //+  SHIFT  |         |         |         |         |         |                              |         |         |         |         |         |  SHIFT  |
 //+---------+---------+---------|---------|---------|---------|---------+          +---------|---------|---------|---------|---------+---------+---------+
-//!                                       |   CTL   |  SPACE  |  SPACE  |          |  ENTER  |   <--   |   -->   |
-//+                                       |         | >NUMROW |   ALT   |          |   GUI   | >ADJUST | CTL+ALT |
+//!                                       |  GRAVE  |  SPACE  |  SPACE  |          |  ENTER  |   <--   |   -->   |
+//+                                       |   CTL   | >NUMROW |   ALT   |          |   GUI   | >ADJUST | CTL+ALT |
 //+                                       +---------+---------+---------+          +---------+---------+---------+
 &kp TAB          &kp Q  &kp W &kp E        &kp R     &kp T                         &kp Y    &kp U     &kp I     &kp O       &kp P    &kp BKSP
 &lt WINKEY MINUS &kp A  &kp S &lt NUMPAD D &kp F     &kp G                         &kp H    &kp J     &kp K     &kp L       &kp SEMI &lht MEH SQT
 &mt LSHIFT LPAR  &kp Z  &kp X &kp C        &kp V     &kp B                         &kp N    &kp M     &kp CMMA  &kp DOT     &kp FSLH &mt RSHIFT RPAR
-                 &kp LCTL     &lt NUMROW SPC         &mt LALT SPC                  &mt LGUI ENTER     &lt ADJUST LEFT_ARROW          &mt LA(LCTL) RIGHT_ARROW
+            &mt LCTL GRAVE    &lt NUMROW SPC         &mt LALT SPC                  &mt LGUI ENTER     &lt ADJUST LEFT_ARROW          &mt LA(LCTL) RIGHT_ARROW
             >;
         };
 
@@ -155,13 +155,13 @@
 //!    (    |    Z    |    X    |    C    |    V    |    B    |                              |    N    |    M    |    ,    |    .    |    /    |    )    |
 //+  SHIFT  |         |         |         |         |         |                              |         |         |         |         |         |  SHIFT  |
 //+---------+---------+---------|---------|---------|---------|---------+          +---------|---------|---------|---------|---------+---------+---------+
-//!                                       |   ALT   |  SPACE  |  SPACE  |          |  ENTER  |   <--   |   -->   |
-//+                                       |         | >NUMROW |   CTL   |          |   GUI   | >ADJUST | CTL+ALT |
+//!                                       |  GRAVE  |  SPACE  |  SPACE  |          |  ENTER  |   <--   |   -->   |
+//+                                       |   ALT   | >NUMROW |   CTL   |          |   GUI   | >ADJUST | CTL+ALT |
 //+                                       +---------+---------+---------+          +---------+---------+---------+
     &trans    &trans    &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
 &lt MACKEY MINUS &trans &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
     &trans    &trans    &trans    &trans    &trans     &trans                        &trans    &trans    &trans    &trans   &trans     &trans
-                                  &kp LALT  &trans  &mt LCTL SPC                     &trans    &trans    &trans
+                            &mt LALT GRAVE  &trans  &mt LCTL SPC                     &trans    &trans    &trans
             >;
         };
 
@@ -170,22 +170,22 @@
             label = "WINKEY";
             bindings = <
 //+---------+---------+---------+---------+---------+---------+                              +---------+---------+---------+---------+---------+---------+
-//!   TAB   |    Q    |    W    |    E    |    R    |    T    |                              |    Y    |    U    |    I    |    O    |    P    |  BKSPC  |
-//+         |close tab|del 1 wrd|toggle OS|relod tab|reopn tab|                              |   undo  |ord list |bull list| zoom -  | zoom +  |prntscrn |
+//!         |    Q    |    W    |    E    |    R    |    T    |                              |    Y    |    U    |    I    |    O    |    P    |         |
+//+         |close tab|del 1 wrd|toggle OS|relod tab|reopn tab|                              |   undo  |ord list |bull list| zoom -  | zoom +  |  CTL+W  |
 //+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
-//!         |    A    |    S    |    D    |    F    |    G    |                              |    H    |    J    |    K    |    L    |    ;    |    '    |
-//+         |selct all|   save  |dev tools|  find   |clipboard|                              |find repl|         |         | hi-light|blok cmnt|         |
+//!         |    A    |    S    |    D    |    F    |    G    |                              |    H    |    J    |    K    |    L    |    ;    |         |
+//+         |selct all|   save  |dev tools|  find   |clipboard|                              |find repl|         |         | hi-light|blok cmnt|prntscrn |
 //+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
-//!   HOME  |    Z    |    X    |    C    |    V    |    B    |                              |    N    |    M    |    ,    |    .    |    /    |   END   |
-//+  SHIFT  |  undo   |   cut   |   copy  |  paste  |paste pln|                              |         |lang slct|         |         | cmd + / |  SHIFT  |
+//!         |    Z    |    X    |    C    |    V    |    B    |                              |    N    |    M    |    ,    |    .    |    /    |         |
+//+         |  undo   |   cut   |   copy  |  paste  |paste pln|                              |         |lang slct|         |         | cmd + / |         |
 //+---------+---------+---------|---------|---------|---------|---------+          +---------|---------|---------|---------|---------+---------+---------+
-//!                                       |   CTL   | >NUMROW |  SPACE  |          |  ENTER  |   <--   |   -->   |
-//+                                       | dedent  |  indent |         |          |         |left1word|rght1word|
+//!                                       |         |         |         |          |        |   <--   |   -->   |
+//+                                       | dedent  |  indent |   home  |          |   end   |left1word|rght1word|
 //+                                       +---------+---------+---------+          +---------+---------+---------+
-&trans        &kp LC(W) &kp LC(BKSP) &tog MACOSX   &kp LC(R) &kp LC(LS(T))         &kp LC(Y) &kp LS(LC(N7)) &kp LS(LC(N8)) &kp LC(MINUS) &kp LC(PLUS)  &kp PRINTSCREEN
-&trans        &kp LC(A) &kp LC(S)    &kp LS(LC(I)) &kp LC(F) &kp LG(V)             &kp LC(H) &trans         &trans         &kp LS(LC(L)) &kp LA(LS(A)) &trans
-&mt LSFT HOME &kp LC(Z) &kp LC(X)    &kp LC(C)     &kp LC(V) &kp LS(LC(V))         &trans    &lselwin       &trans         &trans        &kp LC(FSLH) &mt RSHFT END
-                    &kp LC(LEFT_BRACKET) &kp LC(RIGHT_BRACKET)  &trans             &trans    &kp LC(LEFT) &kp LC(RIGHT)
+&trans  &kp LC(W) &kp LC(BKSP) &tog MACOSX   &kp LC(R) &kp LC(LS(T))         &kp LC(Y) &kp LS(LC(N7)) &kp LS(LC(N8)) &kp LC(MINUS) &kp LC(PLUS)  &kp LC(W)
+&trans  &kp LC(A) &kp LC(S)    &kp LS(LC(I)) &kp LC(F) &kp LG(V)             &kp LC(H) &trans         &trans         &kp LS(LC(L)) &kp LA(LS(A)) &kp PRINTSCREEN
+&trans  &kp LC(Z) &kp LC(X)    &kp LC(C)     &kp LC(V) &kp LS(LC(V))         &trans    &lselwin       &trans         &trans        &kp LC(FSLH) &trans
+                &kp LC(LEFT_BRACKET) &kp LC(RIGHT_BRACKET)  &kp HOME           &kp END   &kp LC(LEFT)   &kp LC(RIGHT)
             >;
         };
 
@@ -193,22 +193,22 @@
             label = "MACKEY";
             bindings = <
 //+---------+---------+---------+---------+---------+---------+                              +---------+---------+---------+---------+---------+---------+
-//!   TAB   |    Q    |    W    |    E    |    R    |    T    |                              |    Y    |    U    |    I    |    O    |    P    |  BKSPC  |
-//+         |close tab|del 1 wrd|toggle OS|relod tab|reopn tab|                              |   undo  |ord list |bull list| zoom -  | zoom +  |prntscrn |
+//!   TAB   |    Q    |    W    |    E    |    R    |    T    |                              |    Y    |    U    |    I    |    O    |    P    |         |
+//+         |close tab|del 1 wrd|toggle OS|relod tab|reopn tab|                              |   undo  |ord list |bull list| zoom -  | zoom +  |  CTL+W  |
 //+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
-//!         |    A    |    S    |    D    |    F    |    G    |                              |    H    |    J    |    K    |    L    |    ;    |    '    |
-//+         |selct all|   save  |dev tools|  find   |clipboard|                              |find repl|         |         | hi-light|blok cmnt|         |
+//!         |    A    |    S    |    D    |    F    |    G    |                              |    H    |    J    |    K    |    L    |    ;    |         |
+//+         |selct all|   save  |dev tools|  find   |clipboard|                              |find repl|         |         | hi-light|blok cmnt|prntscrn |
 //+---------|---------|---------|---------|---------|---------|                              |---------|---------|---------|---------|---------|---------|
-//!   HOME  |    Z    |    X    |    C    |    V    |    B    |                              |    N    |    M    |    ,    |    .    |    /    |   END   |
-//+  SHIFT  |  undo   |   cut   |   copy  |  paste  |paste pln|                              |         |lang slct|         |         | cmd + / |  SHIFT  |
+//!         |    Z    |    X    |    C    |    V    |    B    |                              |    N    |    M    |    ,    |    .    |    /    |         |
+//+         |  undo   |   cut   |   copy  |  paste  |paste pln|                              |         |lang slct|         |         | cmd + / |         |
 //+---------+---------+---------|---------|---------|---------|---------+          +---------|---------|---------|---------|---------+---------+---------+
-//!                                       |   CTL   | >NUMROW |  SPACE  |          |  ENTER  |   <--   |   -->   |
-//+                                       | dedent  |  indent |         |          |         |left1word|rght1word|
+//!                                       |         |         |         |          |         |   <--   |   -->   |
+//+                                       | dedent  |  indent |   home  |          |   end   |left1word|rght1word|
 //+                                       +---------+---------+---------+          +---------+---------+---------+
-&trans            &kp LG(W) &kp LA(BKSP) &tog MACOSX   &kp LG(LS(R)) &kp LG(LS(T))     &kp LS(LG(Z)) &kp LS(LG(N7)) &kp LS(LG(N8)) &kp LG(MINUS) &kp LG(PLUS)  &kp LG(PRINTSCREEN)
-&trans            &kp LG(A) &kp LG(S)    &kp LG(LA(I)) &kp LG(F)     &kp LG(LA(V))     &kp LA(LG(F)) &trans         &trans         &kp LS(LG(L)) &kp LA(LS(A)) &trans
-&mt LSFT LG(LEFT) &kp LG(Z) &kp LG(X)    &kp LG(C)     &kp LG(V)     &kp LS(LG(V))     &trans        &lselmac       &trans         &trans        &kp LG(FSLH)  &mt RSFT LG(RIGHT)
-                    &kp LG(LEFT_BRACKET) &kp LG(RIGHT_BRACKET)  &trans                     &trans    &kp LA(LEFT) &kp LA(RIGHT)
+&trans   &kp LG(W) &kp LA(BKSP) &tog MACOSX   &kp LG(LS(R)) &kp LG(LS(T))     &kp LS(LG(Z)) &kp LS(LG(N7)) &kp LS(LG(N8)) &kp LG(MINUS) &kp LG(PLUS)  &kp LC(W)
+&trans   &kp LG(A) &kp LG(S)    &kp LG(LA(I)) &kp LG(F)     &kp LG(LA(V))     &kp LA(LG(F)) &trans         &trans         &kp LS(LG(L)) &kp LA(LS(A)) &kp LG(PRINTSCREEN)
+&trans   &kp LG(Z) &kp LG(X)    &kp LG(C)     &kp LG(V)     &kp LS(LG(V))     &trans        &lselmac       &trans         &trans        &kp LG(FSLH)  &trans
+                &kp LG(LEFT_BRACKET) &kp LG(RIGHT_BRACKET)  &kp LG(LEFT)      &kp LG(RIGHT)  &kp LA(LEFT) &kp LA(RIGHT)
             >;
         };
 
